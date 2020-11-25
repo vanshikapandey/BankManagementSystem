@@ -1,0 +1,1012 @@
+#include<iostream.h>
+#include<conio.h>
+#include<stdio.h>
+#include<fstream.h>
+#include<stdlib.h>
+#include<process.h>
+#include<dos.h>
+void menu()       /*CODING OF BOX*/
+void box(char x[],char y[])          
+{
+ int i;
+ for(i=1;i<=79;i++)
+ {
+  gotoxy(i,1);
+  cout<<'Ä';
+ }
+ gotoxy(79,1);
+cout<<"¿";
+for(i=2;i<24;i++){
+gotoxy(79,i);
+cout<<"³";
+}
+for(i=79;i>=1;i--){
+gotoxy(i,24);
+cout<<'Ä';
+}
+gotoxy(1,24);
+cout<<"À";
+for(i=23;i>=1;i--){
+gotoxy(1,i);
+cout<<"³";
+}
+ gotoxy(30,3);
+ cout<<x;
+ gotoxy(30,5);
+ cout<<y;
+ for(i=2;i<79;i++){
+ gotoxy(i,6);
+ cout<<"Ä";
+ }
+
+}/*CLASS SAVINGS*/
+class savings{
+
+ char name[30],nationality[20],city[20],idproof[20], add[20];
+ char dob[20];
+ long mno; int sno;
+ char c;
+ float in_amount;
+ public:
+  void enter(int);
+  void disp();
+   int getsno(){
+   return sno;
+   }
+   int getamt(){
+   return in_amount;
+   }
+   char* getname(){
+   return name;
+   }
+   };
+ void savings::enter(int a)
+ {
+   sno=a;
+   clrscr();
+   gotoxy(5,7);
+   cout<<" Enter Name \t";
+   gets(name);
+   gotoxy(5,9);
+   cout<<" Enter Nationality\t";
+   gets(nationality);
+   gotoxy(5,11);
+   cout<<" Enter Address\t";
+   gets(add);
+   gotoxy(5,13);
+   cout<<" Enter City\t";
+   gets(city);
+   gotoxy(5,15);
+   cout<<" Enter Phone No\t";
+   cin>>mno;
+   gotoxy(5,17);
+   cout<<" Enter Date Of Birth\t";
+   cin>>dob;
+   gotoxy(5,19);
+   cout<<" Enter Initial Amount\t";
+   cin>>in_amount;
+   gotoxy(5,21);
+   cout<<" Enter Your Id Proof\t";
+   gets(idproof);
+}
+  void savings::disp()
+{
+  clrscr();
+  gotoxy(5,7);
+  cout<<" Name\t";
+  puts(name);
+  gotoxy(5,9);
+  cout<<" Nationality\t";
+  puts(nationality);
+  gotoxy(5,11);
+  cout<<" Address\t";
+  puts(add);
+  gotoxy(5,13);
+  cout<<" City\t";
+  puts(city);
+  gotoxy(5,15);
+  cout<<" Phone No\t";
+  cout<<mno;
+  gotoxy(5,17);
+  cout<<" Date Of Birth\t";
+  puts(dob);
+  gotoxy(5,19);
+  cout<<" Id Proof\t";
+  puts(idproof);
+  gotoxy(5,21);
+  cout<<" Initial amount\t";
+  cout<<in_amount;
+}
+
+/*CLASS RD*/
+class rd{
+
+  char name[30],nationality[20],city[20],add[20],idproof[20] ;
+  char dob[10];int d1,m1,y1,d2,m2,y2,duration;
+  long mno;int sno1;
+  float in_amount;
+  char c ;
+   public:
+    void disp();
+    void ent(int);
+    int getsno1(){
+   return sno1;
+    }
+   char* getname(){
+       return name;
+    }
+    int getamt(){
+     return in_amount;
+    }
+ };
+  void rd::ent(int a1)
+  {
+   clrscr();
+   sno1=a1;
+   gotoxy(6,4);
+   cout<<" Enter Name\t";
+   gets(name);
+   gotoxy(6,6);
+   cout<<" Enter Nationality\t";
+   gets(nationality);
+   gotoxy(6,8);
+   cout<<" Enter Address\t";
+   gets(add);
+   gotoxy(6,10);
+   cout<<" Enter City\t";
+   gets(city);
+   gotoxy(6,12);
+   cout<<" Enter Phone No\t";
+   cin>>mno;
+   gotoxy(6,14);
+   cout<<" Enter Date Of Birth\t";
+   gets(dob);
+   gotoxy(6,16);
+   cout<<" Enter Id Proof\t";
+   gets(idproof);
+   gotoxy(35,4);
+   cout<<" Enter Initial Amount\t";
+   cin>>in_amount;
+   gotoxy(35,6);
+   cout<<" Enter Opening  Date\t";
+     struct dosdate_t d;
+
+  _dos_getdate(&d);
+  d1=d.day;
+  m1=d.month;
+  y1=d.year;
+  cout<<d1<<"/"<<m1<<"/"<<y1;
+  gotoxy(35,8);
+  cout<<"Enter duration\t";
+  cin>>duration;
+  gotoxy(35,10);
+  d2=d1;
+  m2=m1;
+  y2=y1+duration;
+  cout<<"Maturity date";
+  cout<<d1<<"/"<<m2<<"/"<<y2;
+  }
+
+
+ void rd::disp()
+ {
+  clrscr();
+  gotoxy(6,4);
+  cout<<" Name\t";
+  puts(name);
+  gotoxy(6,6);
+  cout<<" Nationality\t";
+  puts(nationality);
+  gotoxy(6,8);
+  cout<<" Address\t";
+  puts(add);
+  gotoxy(6,10);
+  cout<<" City\t";
+  puts(city);
+  gotoxy(6,12);
+  cout<<" Phone No\t";
+  cout<<mno;
+  gotoxy(6,14);
+  cout<<" Date Of Birth\t";
+  puts(dob);
+  gotoxy(36,4);
+  cout<<" Id Proof\t";
+  puts(idproof);
+ gotoxy(36,6);
+ cout<<" Initial Amount\t";
+ cout<<in_amount;
+ gotoxy(36,8);
+ cout<<" Opening Date\t";
+ cout<<d1<<"/"<<m1<<"/"<<y1;
+ gotoxy(36,10);
+ cout<<"Duration(in years";
+ cout<<duration;
+ gotoxy(36,12);
+ cout<<"Maturity date";
+ cout<<d2<<"/"<<m2<<"/"<<y2;
+}
+/*CLASS FD*/
+class fd{
+
+  char name[30],city[20],idproof[20],add[20],nationality[20], c;
+  int d1,m1,y1,d2,m2,y2, duration, sno2,years;
+  long mno;
+  float in_amount;
+  char dob[10];
+  
+  public:
+  void ent(int);
+  void disp();
+  int getsno2(){
+  return sno2;
+ }
+ };
+
+ void fd::ent(int a2)
+ {
+  clrscr();
+  sno2=a2;
+  gotoxy(7,4);
+  cout<<" Enter Name\t";
+  gets(name);
+  gotoxy(7,6);
+  cout<<"\n Enter Nationality\t";
+  gets(nationality);
+  gotoxy(7,8);
+  cout<<" Enter Address\t";
+  gets(add);
+  gotoxy(7,10);
+  cout<<" Enter City\t";
+  gets(city);
+  gotoxy(7,12);
+  cout<<" Enter  Phone No\t";
+  cin>>mno;
+  gotoxy(7,14);
+  cout<<" Enter Date Of Birth\t";
+  gets(dob);
+  gotoxy(7,16);
+  cout<<" Enter Id Proof\t";
+  gets(idproof);
+  gotoxy(7,18);
+  cout<<" Enter Initial Amount\t";
+  cin>>in_amount;
+  gotoxy(7,20);
+  cout<<" Enter Opening Date\t";
+  struct dosdate_t h;
+
+   _dos_getdate(&h);
+   d1=h.day;
+   m1=h.month;
+   y1=h.year;
+   cout<<d1<<"/"<<m1<<"/"<<y1;
+   gotoxy(30,4);
+   cout<<"\Enter duration";
+   cin>>duration;
+   gotoxy(30,6);
+   d2=d1;
+   m2=m1;
+   y2=y1+duration;
+   cout<<"Maturity date";
+   cout<<d1<<"/"<<m1<<"/"<<y1<<"/";
+ }
+ void fd::disp()
+ {
+   clrscr();
+   gotoxy(7,4);
+   cout<<" Name\t";
+   puts(name);
+   gotoxy(7,6);
+   cout<<" Nationality\t";
+   puts(nationality);
+   gotoxy(7,8);
+   cout<<" Address\t";
+   puts(add);
+   gotoxy(7,10);
+   cout<<" City\t";
+   puts(city);
+   gotoxy(7,12);
+   cout<<" Phone no\t";
+   cout<<mno;
+   gotoxy(7,14);
+   cout<<" Date Of Birth\t";
+   puts(dob);
+   gotoxy(7,16);
+   cout<<" Id Proof\t";
+   gets(idproof);
+   gotoxy(7,18);
+   cout<<" Initial Amount\t";
+   cout<<in_amount;
+   gotoxy(30,4);
+   cout<<" Opening Date\t";
+   cout<<d1<<"/"<<m1<<"/"<<y1<<"/";
+   gotoxy(30,6);
+   cout<<" Maturity Date\t";
+   cout<<d2<<"/"<<m2<<"/"<<y2<<"/";
+  }
+ 
+/*CLASS TRANSACTION*/
+class transaction
+ {
+   char name[30],dot[20],type[20];
+   float in_amount, ent_amount, net_amount, with_amount;
+  long acno;int d1,m1,y1;
+  public:
+  
+void  deposit_sb(char[],char[],int,int,int);
+void withdraw_sb(char[],char[],int,int,int);
+void deposit_rd(char[],char[],int,int,int);
+void print(int);
+int getacno(){
+   return acno;
+   }
+   char* getname(){
+   return name;
+   }
+   int getnet(){
+   return net_amount;
+   }
+   };
+  
+void transaction :: deposit_sb(char n[],char t[],int ac,int amt,int amt1)
+  {
+  clrscr();
+  gotoxy(8,8);
+  cout<<"Type of Transaction";
+  strcpy(type,t);
+  cout<<type;
+   gotoxy(8,10);
+   cout<<"enter name";
+   strcpy(name,n);
+   cout<<name;
+   gotoxy(8,12);
+   cout<<"enter acc no";
+   acno=ac;
+   cout<<acno;
+   gotoxy(8,14);
+   cout<<"enter initial amount";
+   in_amount=amt;
+   cout<<in_amount;
+   gotoxy(8,16);
+   cout<<"enter amount to be deposited";
+   if (amt1==0)
+   cout<<amt;
+   else
+     cout<<amt1;
+   ent_amount=amt1;
+    struct dosdate_t d;
+  _dos_getdate(&d);
+  d1=d.day;
+  m1=d.month;
+  y1=d.year;
+  gotoxy(8,18);
+  cout<<"Date of Transaction";
+  cout<<d1<<"/"<<m1<<"/"<<y1;
+   gotoxy(8,20);
+  cout<<"Net amount is";
+   net_amount=in_amount+ent_amount;
+   cout<<net_amount;
+  }
+
+  void transaction::withdraw_sb(char n[],char t[],int ac,int amt,int amt1)
+  { 
+    clrscr();
+   gotoxy(7,9);
+   cout<<"Type Of Transaction\t";
+   strcpy(type,t);
+   gotoxy(7,11);
+   cout<<" Name\t";
+   strcpy(name,n);
+   gotoxy(7,11);
+   cout<<"account no\t";
+   acno=ac;
+   gotoxy(7,13);
+   in_amount=amt;
+   cout<<in_amount;
+   gotoxy(7,15);
+   cout<<"Enter Amount To Be Withdrawn\t";
+   if(amt1==0)
+   {cout<<amt;
+ }
+   else
+   {cout<<amt1;
+   }
+   ent_amount=amt1;
+   struct dosdate_t h;
+   _dos_getdate(&h);
+   d1=h.day;
+   m1=h.month;
+   y1=h.year;
+   gotoxy(7,17);
+   cout<<" date of transaction";
+   cout<<d1<<"/"<<m1<<"/"<<y1;
+   gotoxy(7,19) ;
+   cout<<" Net Amount Is \t" ;
+   net_amount=in_amount-with_amount;
+   cout<<net_amount;
+  }
+   void transaction ::deposit_rd(char n1[],char   t1[],int ac,int amt,int amt1)
+   { 
+    clrscr();
+    gotoxy(8,10);
+    cout<<"Type Of Transaction\t";
+    strcpy(type,t1);
+    cout<<" Name\t";
+    strcpy(name,n1);
+    gotoxy(8,12);
+    cout<<" Account No\t";
+    acno=ac;
+    cout<<" Initial Amount \t";
+    in_amount=amt;
+    cout<<in_amount;
+    gotoxy(8,14);
+    cout<<"Enter Amount To Be Deposited \t";
+    if(amt1==0)
+    {
+      cout<<amt;
+     }
+     else{
+     cout<<amt1;
+     }
+     ent_amount=amt1;
+     struct dosdate_t l;
+     
+     _dos_getdate(&l);
+     d1=l.day;
+     m1=l.month;
+     y1=l.year;
+     gotoxy(8,16);
+     cout<<" Date Of Transaction \t";
+     cout<<d1<<"/"<<m1<<"/"<<y1;
+     gotoxy(8,18);
+     cout<<"Net Amount Is \t";
+     net_amount=in_amount+amt1;
+    cout<<net_amount;
+}
+
+void transaction::print(int r){
+gotoxy(3,r);
+cout<<d1<<"/"<<m1<<"/"<<y1;
+gotoxy(15,r);
+cout<<type;
+gotoxy(35,r);
+cout<<in_amount;
+gotoxy(50,r);
+if (ent_amount==0)
+cout<<in_amount;
+else
+cout<<ent_amount;
+gotoxy(64,r);
+cout<<net_amount;
+}
+/*ACCOUNT OPENING MENU*/
+void menu1(){
+   int c;
+     clrscr();
+   box("ABS BANK LTD","ACCOUNT OPENING MENU");
+    gotoxy(32,9);
+  cout<<"1.Open Savings Account";
+  gotoxy(32,11);
+  cout<<"2.Open RD Account";
+  gotoxy(32,13);
+  cout<<"3.Open FD  Account";
+  gotoxy(32,15);
+  cout<<"4.Exit";
+  gotoxy(32,17);
+  cout<<"Enter choice";
+  cin>>c;
+  switch(c)
+  {
+  case 1:
+	   savings s;  transaction t;
+	 int a=0;
+ifstream ("savings.dat",ios::in|ios::binary);
+	 if(!m){
+	     a++;
+	     }
+	  else{
+m.read((char*)&s,sizeof(savings));
+	 while(!m.eof()){
+		 a++;
+m.read((char*)&s,sizeof(savings));
+	 }
+	 m.close();
+	 a++;}
+  ofstream k("savings.dat",ios::app|ios::binary);
+             s.enter(a);
+	     k.write((char*)&s,sizeof(savings));
+	     k.close();
+ofstream p("trans.dat",ios::app|ios::binary);
+t.deposit_sb(s.getname(),"deposit",s.getsno(),s.getamt(),0);
+	    p.write((char*)&t,sizeof(transaction));
+	    p.close();
+	    gotoxy(20,23);
+cout<<"Your savings account is"<<"SB"<<a;
+	   gotoxy(20,24);
+cout<<"Press any key to view your particulars";
+	    getch();
+	    clrscr();
+	    gotoxy(3,4);
+	    cout<<"Date";
+	    gotoxy(15,4);
+	    cout<<"Transaction Type";
+	    gotoxy(35,4);
+	    cout<<"Transaction Amt";
+	    gotoxy(50,4);
+	    cout<<"Inital amount";
+	    gotoxy(64,4);
+	    cout<<"Net amount";
+	    t.print(6);
+	     break;
+
+
+  case 2:
+	    rd r;transaction t1;
+	    int a1=0;
+ ifstream m1("rd.dat",ios::in|ios::binary);
+	    if(!m1){
+	    a1++;
+	    }
+	     else{
+	      m1.read((char*)&r,sizeof(rd));
+		     while(!m1.eof()){
+
+	      a1++;
+	       m1.read((char*)&r,sizeof(rd));
+	     }
+	    m1.close();
+	    a1++;}
+  ofstream k1("rd.dat",ios::app|ios::binary);
+	    r.ent(a1);
+	    k1.write((char*)&r,sizeof(rd));
+	    k1.close();
+	    gotoxy(20,23);
+	    cout<<"YourRD account id RD"<<a1;
+         getch();
+ofstream p1("trans1.dat",ios::app|ios::binary);
+t1.deposit_rd(r.getname(),"deposit",r.getsno1(),r.getamt(),0);
+	   p1.write((char*)&t1,sizeof(transaction));
+	   p1.close();
+
+	    gotoxy(20,24);
+cout<<"Press any key to view your particulars";
+	    getch();
+	    clrscr();
+	    gotoxy(3,4);
+	    cout<<"Date";
+	    gotoxy(15,4);
+	    cout<<"Transaction Type";
+	    gotoxy(35,4);
+	    cout<<"Transaction Amt";
+	    gotoxy(50,4);
+	    cout<<"Inital amount";
+	    gotoxy(64,4);
+	    cout<<"Net amount";
+	    t1.print(6);
+	    break;
+
+
+  case 3:   fd f;
+	    int a2=0;
+ifstream m2("fd.dat",ios::in|ios::binary);
+	     if(!m2){
+	     a2++;
+	     }
+	     else{
+	     while(!m2.eof()){
+	      m2.read((char*)&f,sizeof(fd));
+	      a2++;}
+	      m2.close();
+	      a2++;}
+
+ofstream k2("fd.dat",ios::app|ios::binary);
+	    f.ent(a2);
+	    k2.write((char*)&f,sizeof(fd));
+	    k2.close();
+	    gotoxy(20,23);
+	    cout<<"Your FD Account no is"<<a2;
+	     break;
+  case 4:
+	  menu();
+
+   }
+ }
+/*TRANSACTION MENU*/
+ void menu2()              
+ {
+  clrscr();
+  int d;
+  gotoxy(32,9);
+  cout<<"1.Deposit SB";
+  gotoxy(32,11);
+  cout<<"2.Deposit RD";
+  gotoxy(32,13);
+  cout<<"3.Withdraw SB";
+  gotoxy(32,15);
+  cout<<"4.Exit";
+  gotoxy(32,17);
+  cout<<"Enter Your Choice";
+  cin>>d;                                           
+  switch(d)
+{
+case 1: 
+           transaction t;int ac,dep,net=0;char n[20];
+	   fstream k("trans.dat",ios::in|ios::binary);
+	   cout<<"Enter account number";
+	   cin>>ac;
+	   k.read((char*)&t,sizeof(transaction));
+	   while(!k.eof()){
+	   if(t.getacno()==ac){
+	  strcpy(n,t.getname());
+	   net=t.getnet();
+	  }
+	   k.read((char*)&t,sizeof(transaction));
+	  }
+	   k.close();
+	  ofstream l("trans.dat",ios::out|ios::binary);
+	  cout<<"Enter amount to deposit";
+	  cin>>dep;
+	   t.deposit_sb(n,"deposit",ac,net,dep);
+           l.write((char*)&t,sizeof(transaction));
+	   l.close();
+	   break;
+
+case 2:
+	    transaction t1 ;int ac1,dep1 , net1 ;char n1[20];
+	fstream k1("trans1.dat",ios::in|ios::binary);
+	   cout<<"Enter Account No";
+	   cin>>ac1;
+	   k1.read((char*)&t1,sizeof(transaction));
+	   while(!k1.eof())
+	   {
+	    if(t1.getacno()==ac1)         
+	   { strcpy(n1,t1.getname());
+	    net1=t1.getnet();
+	   }k1.read((char*)&t1,sizeof(transaction));
+	   }
+	    k1.close();
+ofstream l1("trans1.dat",ios::in|ios::binary);
+	   cout<<"Enter Amount To Be Deposited";
+	   cin>>dep1;
+	   t1.deposit_rd(n1,"deposit",ac1,net1,dep1);
+	   l1.write((char*)&t1,sizeof(transaction));
+	   l1.close();
+	   break;
+   case 3: 
+                transaction t2;
+	   int ac2,dep2,net2=0;char n2[20];
+	   fstream k2("trans.dat",ios::in|ios::binary);
+	   cout<<"Enter account number";
+	   cin>>ac2;
+	   k2.read((char*)&t2,sizeof(transaction));
+	   while(!k2.eof()){
+	   if(t2.getacno()==ac2){
+	  strcpy(n2,t2.getname());
+	   net2=t2.getnet();
+	  }
+	   k2.read((char*)&t2,sizeof(transaction));
+	  }
+	   k2.close();
+ofstream l2("trans.dat",ios::out|ios::binary);
+	  cout<<"Enter amount to withdraw";
+	  cin>>dep2;
+t2.withdraw_sb(n2,"withdraw",ac2,net2,dep2);
+        l2.write((char*)&t2,sizeof(transaction));
+	   l2.close();
+	   break;
+
+
+   case 4:
+	   exit(0);
+  }
+    
+ }}
+/* VIEW MENU*/  
+void menu3()        
+ {
+   clrscr();
+   int d;
+   gotoxy(5,7);
+   cout<<"1.View savings";
+   gotoxy(5,9);
+   cout<<"2.View RD";
+   gotoxy(5,11);
+   cout<<"3. View FD";
+   gotoxy(5,13);
+   cout<<"Enter Choice";
+   cin>>d;
+   switch(d)
+{
+
+case 1: savings s;int n,flag=0;
+	ifstream k("savings.dat",ios::in|ios::binary);
+	   cout<<"enter account number";
+	   cin>>n;
+	    k.read((char*)&s,sizeof(savings));
+	   while(!k.eof())
+	   {
+             if(s.getsno()==n)
+	   {
+	    clrscr();
+	    s.disp();
+	    flag=1;
+	    }
+	      k.read((char*)&s,sizeof(savings));
+	    }
+	   k.close();
+	   if (flag==0){
+	   gotoxy(30,22);
+	   cout<<"NO RECORD FOUND!!!";
+	   }
+	   break;
+	   }}
+
+case 2: rd r;int p1;   int g1=0;
+	   ifstream k1("rd.dat",ios::in|ios::binary);
+	   cout<<"enter account number";
+	   cin>>p1;
+	   while(!k1.eof())
+	   {
+	    k1.read((char*)&r,sizeof(rd));
+	    if(r.getsno1()==p1)
+	    {
+	       clrscr();
+	       r.disp();g1=1;
+	     }
+	    }
+	    k1.close();
+	    if (g1==0){
+	   gotoxy(30,22);
+	   cout<<"NO RECORD FOUND!!!";
+	   }
+	    break;
+   
+case 3:
+	    fd f;int p2,g2=0;
+	    ifstream k2("fd.dat",ios::in|ios::binary);
+	    cout<<"Enter Account No:";
+	    cin>>p2;
+	    while(!k2.eof())
+	    {
+	     k2.read((char*)&f,sizeof(fd));
+	     if(f.getsno2()==p2)
+	     {
+	      clrscr();
+	      f.disp();g2=1;
+	     }
+	    }
+	    k2.close();
+	   if(g2==0){
+	   gotoxy(30,22);
+	   cout<<"RECORD NOT FOUND!!!";
+	   }
+	   break;
+      }
+ }
+/*MODIFY MENU*/ 
+ void menu4()           
+{ 
+  clrscr();
+  int q;
+  gotoxy(5,9);
+  cout<<"1. Modify savings";
+  gotoxy(5,11);
+  cout<<"2. Modify RD";
+  gotoxy(5,13);
+  cout<<"3. Modify FD";
+  gotoxy(5,15);
+  cout<<"Enter Choice";
+  cin>>q;
+  switch(q)
+{
+ case 1: savings s; int a;
+	ifstream k("savings.dat",ios::in|ios::binary);
+	ofstream m("copy.dat",ios::out|ios::binary);
+	   cout<<"Enter Account no";
+	   cin>>a;
+	   k.read((char*)&s,sizeof(savings));
+	   while(!k.eof())
+	   {
+            if(s.getsno()==a)
+	   {
+	    s.enter(a);
+	    m.write((char*)&s,sizeof(savings));
+	   }
+	   else{
+	      m.write((char*)&s,sizeof(savings));
+	       k.read((char*)&s,sizeof(savings));
+	 } }
+	  m.close();
+	  k.close();
+	  remove("savings.dat");
+	  rename("copy.dat","savings.dat");
+	  break;
+
+case 2: rd r;int a1;
+	  ifstream k1("rd.dat",ios::in|ios::binary);
+   ofstream m1("copy1.dat",ios::out|ios::binary);
+	   cout<<"Enter Account No";
+	   cin>>a1;
+	    k1.read((char*)&r,sizeof(rd));
+	   while(!k1.eof())
+	   {
+             if(r.getsno1()==a1)
+	    {
+	     r.ent(a1);
+	     m1.write((char*)&r,sizeof(rd));
+	    }
+	   else{
+	     m1.write((char*)&r,sizeof(rd));
+             k1.read((char*)&r,sizeof(rd));
+	   } }
+	    m1.close();
+	    k1.close();
+	    remove("rd.dat");
+	    rename("copy1.dat","rd.dat");
+	    break;
+	    }}
+
+case 3 : fd f;int a2;
+	 ifstream k2("fd.dat",ios::in|ios::binary);
+      ofstream m2("copy2.dat",ios::in|ios::binary);
+	  cout<<"Enter Account No";
+	  cin>>a2;
+	  while(!k2.eof())
+	  {
+	    k2.read((char*)&f,sizeof(fd));
+	    if(f.getsno2()==a2)
+	    {
+	      f.ent(a2);
+	      m2.write((char*)&f,sizeof(fd));
+	     }
+	     }
+	     m2.close();
+	     k2.close();
+	     remove("fd.dat");
+	     rename("sb,dat","fd.dat");
+	     break;
+  } } 
+ /*DELETE MENU*/
+ void menu5() 
+ {
+  clrscr();
+ int t;
+ gotoxy(5,7);
+ cout<<"1.Delete savings";
+ gotoxy(5,9);
+ cout<<"2.Delete RD";
+ gotoxy(5,11);
+ cout<<"3.Delete FD";
+ gotoxy(5,13);
+ cout<<"Enter Choice";
+ cin>>t;
+ switch(t)
+{
+  case 1: savings s;int n1;
+	ifstream k("savings.dat",ios::in|ios::binary);
+	ofstream m("sb.dat",ios::out|ios::binary);
+	  cout<<"Enter account no to delete";
+	  cin>>n1;
+	  while(!k.eof())
+	  {
+	   k.read((char*)&s,sizeof(savings));
+	   if(s.getsno()!=n1)
+	   {
+	    m.write((char*)&s,sizeof(savings));
+	    }
+	   }
+	   m.close();
+	   k.close();
+	   remove("savings.dat");
+	   rename("sb.dat","savings.dat");
+	   cout<<"Record deleted";
+	   break;
+
+case 2:rd r;int n2;
+	 ifstream k1("rd.dat",ios::in|ios::binary) ;
+	ofstream m1("rd1.dat",ios::out|ios::binary);
+	   cout<<"Enter account no to delete";
+	  cin>>n2;
+	    while(!k1.eof())
+	    {
+	    k1.read((char*)&r,sizeof(rd));
+	    if(r.getsno1()!=n2)
+	    {
+	    m1.write((char*)&r,sizeof(rd));
+	    }
+	    }
+	    m1.close();
+	    k1.close();
+
+	    remove("rd.dat");
+	    rename("rd1.dat","rd.dat");
+	    cout<<"record deleted";
+	    break;
+
+case 3:    fd f;int n3;
+	  ifstream k2("fd.dat",ios::in|ios::binary);
+	 ofstream m2("fd1.dat",ios::out|ios::binary);
+	    cout<<"Enter account number to delete";
+	    cin>>n3;
+	    while(!k2.eof())
+	    {
+	     k2.read((char*)&f,sizeof(fd));
+	     if(f.getsno2()!=n3)
+	     {
+	     m2.write((char*)&f,sizeof(fd));
+	     }
+	     }
+	     m2.close();
+	     k2.close();
+	     remove("fd.dat");
+	     rename("fd1.dat","fd.dat");
+	     cout<<"record deleted";
+	     break;
+	 }
+    }
+/*MAIN MENU*/
+ void menu()
+ {
+      int c;
+     clrscr();
+   box("ABS BANK LTD","MAIN MENU");
+
+  gotoxy(32,9);
+  cout<<"1.Open Account";
+  gotoxy(32,11);
+  cout<<"2.Transaction";
+  gotoxy(32,13);
+  cout<<"3.View Account";
+  gotoxy(32,14);
+  cout<<"4.Modify Account";
+  gotoxy(32,16);
+  cout<<"5.Close Account";
+  gotoxy(32,18);
+  cout<<"6.Exit";
+  gotoxy(32,19);
+  cout<<"Enter choice";
+  cin>>c;
+  switch(c)
+  {
+ case 1:menu1();
+		break;
+ 
+case 2: menu2();
+	      break;
+
+ case 3: menu3();
+	      break;
+
+ case 4: menu4();
+	     break;
+
+case 5:  menu5();
+	     break;
+
+case 6:
+            clrscr();
+	    gotoxy(10,10);
+	  cout<<"THANK YOU FOR USING THE PROJECT";     
+	getch();
+	exit(0);
+ }
+
+}
+ void main()
+ {
+  clrscr();
+  gotoxy(20,10);
+ cout<<"BANKING";
+ gotoxy(20,12);
+ cout<<"MANAGEMENT";
+ gotoxy(20,14);
+ cout<<"SYSTEM";
+  for(int i=10;i<=100;i+=10)
+  { 
+    gotoxy(35,14);
+   cout<<i<<"%"<<"  ";
+   delay(200);
+   }
+
+ menu();
+  getch();
+ }
